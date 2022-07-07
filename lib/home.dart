@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tflite/tflite.dart';
 
 import 'main.dart';
 
@@ -33,6 +34,11 @@ class _HomeState extends State<Home> {
         });
       });
     });
+  }
+
+  loadModel() async {
+    await Tflite.loadModel(
+        model: 'assets/model.tflite', labels: 'assets/labels.txt');
   }
 
   @override
@@ -68,7 +74,7 @@ class _HomeState extends State<Home> {
                 width: size.width,
                 height: size.height,
                 child: Container(
-                  height: size.height-90,
+                  height: size.height - 90,
                   child: (!cameraController!.value.isInitialized)
                       ? Container(
                           child: Text(
