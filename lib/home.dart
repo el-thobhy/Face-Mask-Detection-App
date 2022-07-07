@@ -85,11 +85,15 @@ class _HomeState extends State<Home> {
           appBar: AppBar(
             backgroundColor: Colors.black,
             title: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.only(top: 20.0),
               child: Center(
                 child: Text(
-                  'Face Mask Detection',
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  result,
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 20,
+                    backgroundColor: Colors.black,
+                  ),
                 ),
               ),
             ),
